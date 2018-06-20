@@ -3,15 +3,13 @@ apply plugin: 'com.github.dcendents.android-maven'
 group = POM_GROUP_ID
 
 android {
-    compileSdkVersion 26
-
-
+    compileSdkVersion ANDROID_BUILD_SDK_VERSION as int
 
     defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion ANDROID_BUILD_MIN_SDK_VERSION as int
+        targetSdkVersion ANDROID_BUILD_SDK_VERSION as int
+        versionCode VERSION_CODE as int
+        versionName VERSION_NAME
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -29,7 +27,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation rootProject.ext.dependencies["appcompat-v7"]
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
