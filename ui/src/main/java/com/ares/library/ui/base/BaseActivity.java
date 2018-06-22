@@ -23,14 +23,20 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(initLayoutId());
         ButterKnife.bind(this);
+        initMvp();
         initWidget();
         initData();
     }
 
     /**
+     * Init MVP Architecture
+     */
+    protected void initMvp() {}
+
+    /**
      * Set Window Params
      */
-    private void initWindow() {}
+    protected void initWindow() {}
 
     /**
      * Set Layout Id

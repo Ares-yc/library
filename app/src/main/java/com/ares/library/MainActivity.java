@@ -1,23 +1,22 @@
 package com.ares.library;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
-import com.ares.library.mvp05.LoginPresenter05;
-import com.ares.library.mvp05.LoginView05;
-import com.ares.library.ui.base.BaseActivity;
+import com.ares.library.mvp08.LoginPresenter08;
+import com.ares.library.mvp08.LoginView08;
+import com.ares.library.mvp08.base.MvpActivity08;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class MainActivity extends BaseActivity implements LoginView05 {
+public class MainActivity extends MvpActivity08<LoginView08,LoginPresenter08> implements LoginView08 {
 
     @BindView(R.id.tv)
     TextView tv;
 
-    private LoginPresenter05 mPresenter;
+    //private LoginPresenter06 mPresenter;
 
 
     @Override
@@ -67,16 +66,40 @@ public class MainActivity extends BaseActivity implements LoginView05 {
         //第五种：继续优化
         //存在的问题：getView()方法强转，非常麻烦
         //解决方案：泛型设计实现
-        mPresenter = new LoginPresenter05();
-        mPresenter.attachView(this);
-        mPresenter.login();
+        //mPresenter = new LoginPresenter05();
+        //mPresenter.attachView(this);
+        //mPresenter.login();
 
+        //第六种：继续优化
+        //存在的问题：每个Activity中Presenter都要绑定、解绑View，非常麻烦
+        //解决方案：抽象设计实现
+        //getPresenter().login();
 
+        //第七种：继续优化
+        //存在的问题：抽象的父类MvpActivity06写死了，扩展性差
+        //解决方案：高度抽象接口->泛型设计实现->类型是动态指定
+        //getPresenter().login();
+
+        //第八种：继续优化
+        //存在的问题：抽象的父类MvpActivity06写死了，扩展性差
+        //解决方案：高度抽象接口->泛型设计实现->类型是动态指定
+        getPresenter().login();
     }
 
     @Override
     public void loginResult(String result) {
-        Log.e("*****",result);
+//        Log.e("*****",result);
+        tv.setText(result);
+    }
+
+    @Override
+    protected LoginView08 createView() {
+        return this;
+    }
+
+    @Override
+    protected LoginPresenter08 createPresenter() {
+        return new LoginPresenter08();
     }
 
     @Override
@@ -84,6 +107,6 @@ public class MainActivity extends BaseActivity implements LoginView05 {
         super.onDestroy();
 
         //第二种：优化第一种
-        if (mPresenter != null) mPresenter.detachView();
+        //if (mPresenter != null) mPresenter.detachView();
     }
 }
