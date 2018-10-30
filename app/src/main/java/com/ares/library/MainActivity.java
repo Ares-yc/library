@@ -1,30 +1,15 @@
 package com.ares.library;
 
-import android.os.Bundle;
 import android.widget.TextView;
 
 import com.ares.library.mvp08.LoginPresenter08;
 import com.ares.library.mvp08.LoginView08;
 import com.ares.library.mvp08.base.MvpActivity08;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 
 public class MainActivity extends MvpActivity08<LoginView08,LoginPresenter08> implements LoginView08 {
 
-    @BindView(R.id.tv)
-    TextView tv;
-
     //private LoginPresenter06 mPresenter;
-
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 
     @Override
     protected int initLayoutId() {
@@ -33,7 +18,7 @@ public class MainActivity extends MvpActivity08<LoginView08,LoginPresenter08> im
 
     @Override
     protected void initWidget() {
-        tv.setText("ButterKnife bind successful!");
+        ((TextView)findViewById(R.id.tv)).setText("ButterKnife bind successful!");
     }
 
     @Override
@@ -89,7 +74,7 @@ public class MainActivity extends MvpActivity08<LoginView08,LoginPresenter08> im
     @Override
     public void loginResult(String result) {
 //        Log.e("*****",result);
-        tv.setText(result);
+        ((TextView)findViewById(R.id.tv)).setText(result);
     }
 
     @Override
