@@ -27,7 +27,7 @@ public abstract class MvpActivity06 extends BaseActivity implements LoginView06{
     }
 
     @Override
-    protected void initWidget() {
+    protected void initMvp() {
         this.mPresenter = new LoginPresenter06();
         this.mPresenter.attachView(this);
     }

@@ -1,17 +1,20 @@
-package com.ares.library.mvp08.base;
+package com.ares.library.ui.base.mvp.view;
+
+import android.util.Log;
 
 import com.ares.library.ui.base.BaseActivity;
+import com.ares.library.ui.base.mvp.presenter.MvpBasePresenter;
 
 /**
  * =========================================
  * Author       ：https://github.com/Ares-yc
- * Description  ：
+ * Description  ：MVP模式Activity基类
  * VersionCode  ：1.0.0
- * CreateDate   ：2018/6/22.
- * UpdateDate   ：2018/6/22.
+ * CreateDate   ：2018/10/30.
+ * UpdateDate   ：2018/10/30.
  * =========================================
  */
-public abstract class MvpActivity08<V extends MvpView08,P extends BasePresenter08<V>> extends BaseActivity {
+public abstract class MvpBaseActivity<V extends MvpView, P extends MvpBasePresenter<V>> extends BaseActivity {
 
     private V mView;
     private P mPresenter;
@@ -27,6 +30,7 @@ public abstract class MvpActivity08<V extends MvpView08,P extends BasePresenter0
         if (this.mView != null && this.mPresenter != null){
             this.mPresenter.attachView(this.mView);
         }
+        Log.e("*****","abcd");
     }
 
     protected abstract V createView();
