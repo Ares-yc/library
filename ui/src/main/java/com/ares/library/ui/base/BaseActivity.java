@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import butterknife.ButterKnife;
+
 /**
  * =========================================
  * Author       ：https://github.com/Ares-yc
@@ -20,7 +22,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         initWindow();
         super.onCreate(savedInstanceState);
         setContentView(initLayoutId());
-        initButterKnife();
+        initButterKnife(false);
         initMvp();
         initWidget();
         initData();
@@ -29,7 +31,11 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * Init ButterKnife bind
      */
-    protected void initButterKnife() {}
+    protected void initButterKnife(boolean flag) {
+        if (flag) {
+            ButterKnife.bind(this);
+        }
+    }
 
     /**
      * Init MVP Architecture
