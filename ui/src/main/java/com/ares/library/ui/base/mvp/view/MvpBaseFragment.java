@@ -1,18 +1,18 @@
 package com.ares.library.ui.base.mvp.view;
 
-import com.ares.library.ui.base.BaseActivity;
+import com.ares.library.ui.base.BaseFragment;
 import com.ares.library.ui.base.mvp.presenter.MvpBasePresenter;
 
 /**
  * =========================================
  * Author       ：https://github.com/Ares-yc
- * Description  ：The base class of mvp activity
+ * Description  ：The base class of mvp fragment
  * VersionCode  ：1.0.0
- * CreateDate   ：2018/10/30.
- * UpdateDate   ：2018/10/30.
+ * CreateDate   ：2018/10/31.
+ * UpdateDate   ：2018/10/31.
  * =========================================
  */
-public abstract class MvpBaseActivity<V extends MvpView, P extends MvpBasePresenter<V>> extends BaseActivity {
+public abstract class MvpBaseFragment<V extends MvpView, P extends MvpBasePresenter<V>> extends BaseFragment{
 
     private V mView;
     private P mPresenter;
@@ -39,8 +39,8 @@ public abstract class MvpBaseActivity<V extends MvpView, P extends MvpBasePresen
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    public void onDestroyView() {
+        super.onDestroyView();
         this.mPresenter.detachView();
     }
 }

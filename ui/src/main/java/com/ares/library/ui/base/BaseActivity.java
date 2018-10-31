@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 /**
  * =========================================
  * Author       ：https://github.com/Ares-yc
- * Description  ：The base class of Activity
+ * Description  ：The base class of activity
  * VersionCode  ：1.0.0
  * CreateDate   ：2018/6/20.
  * UpdateDate   ：2018/6/20.
@@ -27,7 +27,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     /**
-     * Init ButterKnife
+     * Init ButterKnife bind
      */
     protected void initButterKnife() {}
 
