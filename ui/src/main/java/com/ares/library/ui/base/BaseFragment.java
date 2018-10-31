@@ -29,7 +29,6 @@ public abstract class BaseFragment extends Fragment{
 
         rootView = inflater.inflate(initLayoutId(),null);
         mParentActivity = getActivity();
-        initButterKnife(mParentActivity,rootView);
         return rootView;
     }
 
@@ -45,11 +44,6 @@ public abstract class BaseFragment extends Fragment{
      * Set Layout Id
      */
     protected abstract int initLayoutId();
-
-    /**
-     * Init ButterKnife Bind
-     */
-    protected void initButterKnife(Activity mContext, View rootView) {}
 
     /**
      * Init MVP Architecture
