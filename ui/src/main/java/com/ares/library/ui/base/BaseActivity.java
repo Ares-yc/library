@@ -28,15 +28,18 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * Init MVP Architecture
      */
-    protected void initMvp() {}
+    protected void initMvp() {
+    }
 
     /**
      * Set Window Params
      */
-    protected void initWindow() {}
+    protected void initWindow() {
+    }
 
     /**
      * Set Layout Id
+     *
      * @return LayoutId
      */
     protected abstract int initLayoutId();
